@@ -1,4 +1,4 @@
-package com.company.mainView;
+package com.company.ui.mainView;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

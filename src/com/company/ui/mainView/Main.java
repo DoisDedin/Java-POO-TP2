@@ -1,8 +1,6 @@
-package com.company;
+package com.company.ui.mainView;
 
-import com.company.mainView.LoguinView;
-
-import javax.swing.*;
+import com.company.ui.mainView.LoguinView;
 
 public class Main  {
 
