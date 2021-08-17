@@ -18,13 +18,21 @@ public class PrimeiraTela {
             }
         });
 
+        btnAdmin.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                LoginTela loginTela = new LoginTela();
+                loginTela.mostraLoguin();
+            }
+        });
     }
 
-    public void mostraLoguin() {
+    public void mostraPrimeiraTela() {
         JFrame frame = new JFrame("Loguin");
         frame.setContentPane(new PrimeiraTela().primeiraPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
+
     }
 }

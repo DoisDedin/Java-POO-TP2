@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class LoguinTela {
+public class LoginTela {
     private JTextField editTextLogin;
     private JTextField editTextSenha;
     private JButton btnEntrar;
@@ -14,7 +14,7 @@ public class LoguinTela {
     private JPanel loginPanel;
 
 
-    public LoguinTela() {
+    public LoginTela() {
         btnVoltar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -25,7 +25,7 @@ public class LoguinTela {
 
     public void mostraLoguin() {
         JFrame frame = new JFrame("Loguin");
-        frame.setContentPane(new LoguinTela().loginPanel);
+        frame.setContentPane(new LoginTela().loginPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
