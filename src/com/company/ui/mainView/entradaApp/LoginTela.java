@@ -13,7 +13,7 @@ public class LoginTela {
     private JButton btnVoltar;
     private JPanel loginPanel;
 
-
+    private String user ;
     public LoginTela() {
         btnVoltar.addActionListener(new ActionListener() {
             @Override
@@ -23,10 +23,11 @@ public class LoginTela {
         });
     }
 
-    public void mostraLoguin() {
-        JFrame frame = new JFrame("Loguin");
+    public void mostraLoginGUI(String title, String user) {
+        this.user = user;
+        JFrame frame = new JFrame(title);
         frame.setContentPane(new LoginTela().loginPanel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
     }
