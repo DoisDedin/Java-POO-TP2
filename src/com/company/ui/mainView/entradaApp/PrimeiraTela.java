@@ -10,44 +10,46 @@ public class PrimeiraTela {
     private JButton btnVeterinario;
     private JButton btnVendedor;
 
+    public LoginTela loginTela = new LoginTela(this);
 
-    LoginTela loginTela = new LoginTela();
+    public JFrame frame;
 
     public PrimeiraTela() {
-
-        setUpListeners();
-
 
     }
 
     public void mostraPrimeiraTelaGUI() {
-        JFrame frame = new JFrame("Menu Principal");
-        frame.setContentPane(new PrimeiraTela().primeiraPanel);
+        frame = new JFrame("Menu Principal");
+        frame.setContentPane(primeiraPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
+        setUpListeners(frame);
 
     }
 
 
-    public void setUpListeners() {
+    public void setUpListeners(JFrame frame) {
         btnAdmin.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 loginTela.mostraLoginGUI("Login - Admin", "a");
+                frame.setVisible(false);
             }
         });
         btnVendedor.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                loginTela.mostraLoginGUI("Login - Vendedor",  "b");
+                loginTela.mostraLoginGUI("Login - Vendedor", "a");
+                frame.setVisible(false);
             }
         });
 
         btnVeterinario.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                loginTela.mostraLoginGUI("Login - Veterinario", "c");
+                loginTela.mostraLoginGUI("Login - Veterinario", "a");
+                frame.setVisible(false);
             }
         });
 
