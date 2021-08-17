@@ -8,10 +8,10 @@ public class Pagamento {
     public Pagamento(String dataPagamento, String dataVencimento, String desc){
         setDataPagamento(dataPagamento);
         setDataVencimento(dataVencimento);
-        serDescricao(desc);
+        setDescricao(desc);
     }
 
-    public void serDescricao(String desc) {
+    public void setDescricao(String desc) {
         this.desc = desc;
     }
 

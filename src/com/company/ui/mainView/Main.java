@@ -1,13 +1,13 @@
 package com.company.ui.mainView;
 
-import com.company.ui.mainView.LoguinView;
+import com.company.ui.mainView.entradaApp.PrimeiraTela;
 
 public class Main  {
 
     public static void main(String[] args) {
-        LoguinView loguinView = new LoguinView();
+        PrimeiraTela primeiraTela = new PrimeiraTela();
 
-        loguinView.mostraLoguin();
+        primeiraTela.mostraLoguin();
     }
 
 }
