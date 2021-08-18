@@ -92,4 +92,12 @@ public class Data {
     public void setAdmin(Admin admin) {
         this.admin = admin;
     }
+
+    public boolean existeVeterinario(String login, String senha){
+        return true;
+    }
+
+    public boolean existeVendedor(String login, String senha){
+        return true;
+    }
 }

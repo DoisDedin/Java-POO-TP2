@@ -21,7 +21,7 @@ public class LoginTela {
     private JPanel loginPanel;
     private JPasswordField editTextSenha;
 
-    private String mUser  = "null";
+    private String mUser = "null";
 
     JFrame frame;
 
@@ -30,7 +30,6 @@ public class LoginTela {
     private final MenuAdminTela menuAdminTela = new MenuAdminTela();
     private final MenuVendedorTela menuVendedorTela = new MenuVendedorTela();
     private final MenuVeterinarioTela menuVeterinarioTela = new MenuVeterinarioTela();
-
 
 
     public String getmUser() {
@@ -45,7 +44,7 @@ public class LoginTela {
         primeiraTela = prim;
     }
 
-    public void mostraLoginGUI(String title,String user) {
+    public void mostraLoginGUI(String title, String user) {
         frame = new JFrame(title);
         frame.setContentPane(loginPanel);
         frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
@@ -53,12 +52,11 @@ public class LoginTela {
         frame.setVisible(true);
 
 
-
         setmUser(user);
         setUpListener(frame);
     }
 
-    public void setUpListener(JFrame frame){
+    public void setUpListener(JFrame frame) {
         btnVoltar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -70,43 +68,55 @@ public class LoginTela {
         btnEntrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               efetuaLogin(  editTextLogin.getText() , editTextSenha.getText());
+                efetuaLogin(editTextLogin.getText(), editTextSenha.getText());
             }
         });
     }
 
 
-    public void  efetuaLogin( String login, String senha){
-        switch (getmUser()){
-            case "a" ->{
+    public void efetuaLogin(String login, String senha) {
+        switch (getmUser()) {
+            case "a" -> {
                 Admin admin = primeiraTela.data.getAdmin();
 
-                if(Objects.equals(admin.getUser(), login) && Objects.equals(admin.getSenha(), senha)){
+                if (Objects.equals(admin.getUser(), login) && Objects.equals(admin.getSenha(), senha)) {
                     JOptionPane.showMessageDialog(null, "rolousdasdasda");
                     menuAdminTela.mostraMenuAdminGUI(primeiraTela);
                     frame.setVisible(false);
-                    editTextLogin.setText("");
-                    editTextSenha.setText("");
-                }else{
-                    JOptionPane.showMessageDialog( null , "Usuario ou senha errados,\n Tente novamente!!");
-                    editTextLogin.setText("");
-                    editTextSenha.setText("");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Usuario ou senha errados,\n Tente novamente!!");
                 }
+                editTextLogin.setText("");
+                editTextSenha.setText("");
             }
-            case "b" ->{
-
+            case "b" -> {
+                if (primeiraTela.data.existeVendedor(login, senha)) {
+                    JOptionPane.showMessageDialog(null, "LOGOU VENDEDOR!!");
+                    menuVendedorTela.mostraMenuVendedorGUI(primeiraTela);
+                    frame.setVisible(false);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Usuario ou senha errados,\n Tente novamente!!");
+                }
+                editTextLogin.setText("");
+                editTextSenha.setText("");
             }
-            case "c" ->{
-
+            case "c" -> {
+                if (primeiraTela.data.existeVeterinario(login, senha)) {
+                    JOptionPane.showMessageDialog(null, "LOGOU VETERINARIO!!");
+                    menuVeterinarioTela.mostraMenuVeterinarioGUI(primeiraTela);
+                    frame.setVisible(false);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Usuario ou senha errados,\n Tente novamente!!");
+                }
+                editTextLogin.setText("");
+                editTextSenha.setText("");
             }
             default -> {
-
+                JOptionPane.showMessageDialog(null, "INVALID!!");
+                System.exit(0);
             }
         }
     }
-
-
-
 
 
 }
