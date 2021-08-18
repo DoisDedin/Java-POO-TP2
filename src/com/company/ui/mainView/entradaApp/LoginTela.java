@@ -6,12 +6,12 @@ import java.awt.event.ActionListener;
 
 public class LoginTela {
     private JTextField editTextLogin;
-    private JTextField editTextSenha;
     private JButton btnEntrar;
     private JLabel txtLoguin;
     private JLabel txtSenha;
     private JButton btnVoltar;
     private JPanel loginPanel;
+    private JPasswordField editTextSenha;
 
     private String user ;
     public LoginTela() {
