@@ -1,11 +1,14 @@
 package com.company.ui.mainView.menus.admin;
 
+import com.company.ui.mainView.entradaApp.LoginTela;
 import com.company.ui.mainView.entradaApp.PrimeiraTela;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class MenuAdminTela extends javax.swing.JFrame {
-    private JPanel menuPanel;
+    private JPanel menuAdminPanel;
     private JButton btnEstoque;
     private JButton btnCliente;
     private JButton btnFuncionarios;
@@ -14,12 +17,32 @@ public class MenuAdminTela extends javax.swing.JFrame {
     private JButton btnVendas;
     private JButton btnVoltar;
 
-    public void mostraMenuAdmin() {
-        JFrame frame = new JFrame("Loguin");
-        frame.setContentPane(new MenuAdminTela().menuPanel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    JFrame frame;
+    PrimeiraTela primeiraTela;
+
+    public MenuAdminTela(){
+
+    }
+    public void mostraMenuAdminGUI(PrimeiraTela primeiraTela) {
+        this.primeiraTela = primeiraTela;
+
+        frame = new JFrame("Menu - Admin");
+        frame.setContentPane(menuAdminPanel);
+        frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
+
+        setUpListeners();
+    }
+
+    private void setUpListeners(){
+        btnVoltar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                primeiraTela.frame.setVisible(true);
+                frame.setVisible(false);
+            }
+        });
     }
 
 

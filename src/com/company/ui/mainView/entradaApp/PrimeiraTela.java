@@ -1,5 +1,7 @@
 package com.company.ui.mainView.entradaApp;
 
+import com.company.components_models.estabelecimento.data.Data;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,6 +14,7 @@ public class PrimeiraTela {
 
     public LoginTela loginTela = new LoginTela(this);
 
+    public Data data = new Data();
     public JFrame frame;
 
     public PrimeiraTela() {
@@ -40,7 +43,7 @@ public class PrimeiraTela {
         btnVendedor.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                loginTela.mostraLoginGUI("Login - Vendedor", "a");
+                loginTela.mostraLoginGUI("Login - Vendedor", "b");
                 frame.setVisible(false);
             }
         });
@@ -48,7 +51,7 @@ public class PrimeiraTela {
         btnVeterinario.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                loginTela.mostraLoginGUI("Login - Veterinario", "a");
+                loginTela.mostraLoginGUI("Login - Veterinario", "c");
                 frame.setVisible(false);
             }
         });

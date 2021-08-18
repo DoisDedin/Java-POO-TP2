@@ -1,9 +1,16 @@
 package com.company.ui.mainView.entradaApp;
 
+import com.company.components_models.estabelecimento.pessoas.funcionarios.admin.Admin;
+import com.company.ui.mainView.menus.admin.MenuAdminTela;
+import com.company.ui.mainView.menus.vendedor.MenuVendedorTela;
+import com.company.ui.mainView.menus.veterinario.MenuVeterinarioTela;
+
 import javax.naming.Context;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Objects;
 
 public class LoginTela {
     private JTextField editTextLogin;
@@ -16,7 +23,15 @@ public class LoginTela {
 
     private String mUser  = "null";
 
-    private PrimeiraTela primeiraTela ;
+    JFrame frame;
+
+    private final PrimeiraTela primeiraTela;
+
+    private final MenuAdminTela menuAdminTela = new MenuAdminTela();
+    private final MenuVendedorTela menuVendedorTela = new MenuVendedorTela();
+    private final MenuVeterinarioTela menuVeterinarioTela = new MenuVeterinarioTela();
+
+
 
     public String getmUser() {
         return this.mUser;
@@ -31,7 +46,7 @@ public class LoginTela {
     }
 
     public void mostraLoginGUI(String title,String user) {
-        JFrame frame = new JFrame(title);
+        frame = new JFrame(title);
         frame.setContentPane(loginPanel);
         frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         frame.pack();
@@ -55,7 +70,7 @@ public class LoginTela {
         btnEntrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               efetuaLogin(  txtLoguin.getText() , txtSenha.getText());
+               efetuaLogin(  editTextLogin.getText() , editTextSenha.getText());
             }
         });
     }
@@ -64,8 +79,19 @@ public class LoginTela {
     public void  efetuaLogin( String login, String senha){
         switch (getmUser()){
             case "a" ->{
-                JOptionPane.showMessageDialog(null, "rolousdasdasda");
+                Admin admin = primeiraTela.data.getAdmin();
 
+                if(Objects.equals(admin.getUser(), login) && Objects.equals(admin.getSenha(), senha)){
+                    JOptionPane.showMessageDialog(null, "rolousdasdasda");
+                    menuAdminTela.mostraMenuAdminGUI(primeiraTela);
+                    frame.setVisible(false);
+                    editTextLogin.setText("");
+                    editTextSenha.setText("");
+                }else{
+                    JOptionPane.showMessageDialog( null , "Usuario ou senha errados,\n Tente novamente!!");
+                    editTextLogin.setText("");
+                    editTextSenha.setText("");
+                }
             }
             case "b" ->{
 

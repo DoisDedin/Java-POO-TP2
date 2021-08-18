@@ -12,17 +12,17 @@ public class Data {
 
     //fazer a criação das listaas e tals
     private Admin admin;
-    private List<Vendedor> vendedor;
-    private List<Veterinario> veterinario;
-    private List<Tosador> tosador;
-    private List<Cliente> clientes;
+    private ArrayList<Vendedor> vendedor;
+    private ArrayList<Veterinario> veterinario;
+    private ArrayList<Tosador> tosador;
+    private ArrayList<Cliente> clientes;
 
-    public Data(List<Vendedor> vendedor, List<Veterinario> veterinario, List<Tosador> tosador, List<Cliente> clientes, Admin admin){
+    public Data(ArrayList<Vendedor> vendedor, ArrayList<Veterinario> veterinario, ArrayList<Tosador> tosador, ArrayList<Cliente> clientes, Admin admin){
 
-        vendedor = new ArrayList<>();
-        veterinario = new ArrayList<>();
-        tosador = new ArrayList<>();
-        clientes = new ArrayList<>();
+        vendedor = new ArrayList<Vendedor>();
+        veterinario = new ArrayList<Veterinario>();
+        tosador = new ArrayList<Tosador>();
+        clientes = new ArrayList<Cliente>();
 
         this.vendedor = vendedor;
         this.veterinario = veterinario;
@@ -62,28 +62,28 @@ public class Data {
     }
     //criar metodos para a inserção e obtenção desses valores
 
-    public List<Vendedor> getVendedor(){
+    public ArrayList<Vendedor> getVendedor(){
         return vendedor;
     }
-    public void setVendedor(List<Vendedor>vendedor){
+    public void setVendedor(ArrayList<Vendedor>vendedor){
         this.vendedor = vendedor;
     }
-    public List<Veterinario> getVeterinario() {
+    public ArrayList<Veterinario> getVeterinario() {
         return veterinario;
     }
-    public void setVeterinario(List<Veterinario> veterinario) {
+    public void setVeterinario(ArrayList<Veterinario> veterinario) {
         this.veterinario = veterinario;
     }
-    public List<Tosador> getTosador() {
+    public ArrayList<Tosador> getTosador() {
         return tosador;
     }
-    public void setTosador(List<Tosador> tosador) {
+    public void setTosador(ArrayList<Tosador> tosador) {
         this.tosador = tosador;
     }
-    public List<Cliente> getClientes() {
+    public ArrayList<Cliente> getClientes() {
         return clientes;
     }
-    public void setClientes(List<Cliente> clientes) {
+    public void setClientes(ArrayList<Cliente> clientes) {
         this.clientes = clientes;
     }
     public Admin getAdmin() {
