@@ -14,11 +14,11 @@ public class Admin extends Funcionario {
     }
 
     public void setUser(String user) {
-        this.user = "admin";
+        this.user = user;
     }
 
     public void setSenha(String senha) {
-        this.senha = "admin";
+        this.senha = senha;
     }
 
     public String getUser(){
