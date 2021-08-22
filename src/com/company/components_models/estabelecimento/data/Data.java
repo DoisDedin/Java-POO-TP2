@@ -10,6 +10,8 @@ import java.util.List;
 
 public class Data {
 
+
+
     //fazer a criação das listaas e tals
     private Admin admin;
     private ArrayList<Vendedor> vendedor;
