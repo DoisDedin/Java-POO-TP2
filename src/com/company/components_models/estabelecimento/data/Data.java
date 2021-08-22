@@ -4,7 +4,9 @@ import com.company.components_models.estabelecimento.pessoas.funcionarios.admin.
 import com.company.components_models.estabelecimento.pessoas.funcionarios.tosador.Tosador;
 import com.company.components_models.estabelecimento.pessoas.funcionarios.vendedor.Vendedor;
 import com.company.components_models.estabelecimento.pessoas.funcionarios.veterinario.Veterinario;
+import com.company.ui.mainView.menus.vendedor.TelaCadastrarCliesnte;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -102,4 +104,24 @@ public class Data {
     public boolean existeVendedor(String login, String senha){
         return true;
     }
+
+    public  void newCliente(){
+        TelaCadastrarCliesnte novo = new TelaCadastrarCliesnte();
+        novo.setVisible(true);
+
+        while ("nulo".equals(novo.getNome()) && "nulo".equals(novo.getCpf()) && "nulo".equals(novo.getTel()) && "nulo".equals(novo.getQtdCompras())){
+            System.out.println(novo.getNome() + " " + novo.getCpf() + " " + novo.getTel() + " " + novo.getQtdCompras());
+        }
+
+        int qtd = Integer.parseInt(novo.getQtdCompras());
+        Cliente add = new Cliente(novo.getNome(), novo.getCpf(), novo.getTel(), qtd);
+        boolean verification = clientes.add(add);
+
+        if (!verification){
+            JOptionPane.showMessageDialog(null, "NÃO FOI POSSIVEL CADASTRAR CLIENTE", "Error",JOptionPane.ERROR_MESSAGE);
+        }
+        else JOptionPane.showMessageDialog(null, "CLIENTE CADASTRADO", "Cadastro",JOptionPane.PLAIN_MESSAGE);
+    }
+
+
 }

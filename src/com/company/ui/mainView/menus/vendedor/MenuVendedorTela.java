@@ -14,7 +14,6 @@ public class MenuVendedorTela {
 
     JFrame frame;
     private PrimeiraTela primeiraTela;
-
     public MenuVendedorTela() {
 
     }

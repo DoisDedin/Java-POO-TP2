@@ -8,4 +8,6 @@ public class TelaQuantidade {
     private JButton confirmarButton;
     private JLabel quantidadeLabel;
     private JLabel QUANTIDADEDEANIMAISLabel;
+    private JComboBox comboBox1;
+    private JLabel serviçoLabel;
 }
