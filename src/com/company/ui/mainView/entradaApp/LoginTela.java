@@ -27,9 +27,9 @@ public class LoginTela {
 
     private final PrimeiraTela primeiraTela;
 
-    private final MenuAdminTela menuAdminTela = new MenuAdminTela();
-    private final MenuVendedorTela menuVendedorTela = new MenuVendedorTela();
-    private final MenuVeterinarioTela menuVeterinarioTela = new MenuVeterinarioTela();
+    private MenuAdminTela menuAdminTela;
+    private MenuVendedorTela menuVendedorTela;
+    private MenuVeterinarioTela menuVeterinarioTela;
 
 
     public String getmUser() {
@@ -53,13 +53,14 @@ public class LoginTela {
 
 
         setmUser(user);
-        setUpListener(frame);
+        setUpListener();
     }
 
-    private void setUpListener(JFrame frame) {
+    private void setUpListener() {
         btnVoltar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                limpaTela();
                 frame.setVisible(false);
                 primeiraTela.frame.setVisible(true);
             }
@@ -69,6 +70,7 @@ public class LoginTela {
             @Override
             public void actionPerformed(ActionEvent e) {
                 efetuaLogin(editTextLogin.getText(), editTextSenha.getText());
+                limpaTela();
             }
         });
     }
@@ -81,41 +83,46 @@ public class LoginTela {
 
                 if (Objects.equals(admin.getUser(), login) && Objects.equals(admin.getSenha(), senha)) {
                     JOptionPane.showMessageDialog(null, "rolousdasdasda");
-                    menuAdminTela.mostraMenuAdminGUI(primeiraTela);
+                    menuAdminTela = new MenuAdminTela(primeiraTela);
+                    menuAdminTela.mostraMenuAdminGUI();
                     frame.setVisible(false);
                 } else {
                     JOptionPane.showMessageDialog(null, "Usuario ou senha errados,\n Tente novamente!!");
                 }
-                editTextLogin.setText("");
-                editTextSenha.setText("");
+                limpaTela();
             }
             case "b" -> {
                 if (primeiraTela.data.existeVendedor(login, senha)) {
                     JOptionPane.showMessageDialog(null, "LOGOU VENDEDOR!!");
-                    menuVendedorTela.mostraMenuVendedorGUI(primeiraTela);
+                    menuVendedorTela = new MenuVendedorTela(primeiraTela);
+                    menuVendedorTela.mostraMenuVendedorGUI();
                     frame.setVisible(false);
                 } else {
                     JOptionPane.showMessageDialog(null, "Usuario ou senha errados,\n Tente novamente!!");
                 }
-                editTextLogin.setText("");
-                editTextSenha.setText("");
+                limpaTela();
             }
             case "c" -> {
                 if (primeiraTela.data.existeVeterinario(login, senha)) {
                     JOptionPane.showMessageDialog(null, "LOGOU VETERINARIO!!");
-                    menuVeterinarioTela.mostraMenuVeterinarioGUI(primeiraTela);
+                    menuVeterinarioTela = new MenuVeterinarioTela(primeiraTela);
+                    menuVeterinarioTela.mostraMenuVeterinarioGUI();
                     frame.setVisible(false);
                 } else {
                     JOptionPane.showMessageDialog(null, "Usuario ou senha errados,\n Tente novamente!!");
                 }
-                editTextLogin.setText("");
-                editTextSenha.setText("");
+                limpaTela();
             }
             default -> {
                 JOptionPane.showMessageDialog(null, "INVALID!!");
                 System.exit(0);
             }
         }
+    }
+
+    private void limpaTela() {
+        editTextLogin.setText("");
+        editTextSenha.setText("");
     }
 
 

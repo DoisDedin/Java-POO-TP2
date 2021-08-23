@@ -16,12 +16,11 @@ public class MenuVeterinarioTela {
     JFrame frame;
     private PrimeiraTela primeiraTela;
 
-    public MenuVeterinarioTela() {
-
+    public MenuVeterinarioTela(PrimeiraTela prim) {
+        primeiraTela = prim;
     }
 
-    public void mostraMenuVeterinarioGUI(PrimeiraTela primeiraTela) {
-        this.primeiraTela = primeiraTela;
+    public void mostraMenuVeterinarioGUI() {
 
         frame = new JFrame("Menu - Admin");
         frame.setContentPane(panelMenuVeterinario);

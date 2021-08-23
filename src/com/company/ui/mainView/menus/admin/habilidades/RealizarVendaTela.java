@@ -1,4 +1,4 @@
 package com.company.ui.mainView.menus.admin.habilidades;
 
-public class MostrarContas {
+public class RealizarVendaTela {
 }

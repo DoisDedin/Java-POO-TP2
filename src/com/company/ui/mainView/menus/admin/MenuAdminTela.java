@@ -2,6 +2,7 @@ package com.company.ui.mainView.menus.admin;
 
 import com.company.ui.mainView.entradaApp.LoginTela;
 import com.company.ui.mainView.entradaApp.PrimeiraTela;
+import com.company.ui.mainView.menus.admin.habilidades.EstoqueTela;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -19,23 +20,64 @@ public class MenuAdminTela extends javax.swing.JFrame {
 
     JFrame frame;
     PrimeiraTela primeiraTela;
+    EstoqueTela estoqueTela;
 
-    public MenuAdminTela(){
 
+    public MenuAdminTela(PrimeiraTela prim){
+        primeiraTela = prim;
     }
-    public void mostraMenuAdminGUI(PrimeiraTela primeiraTela) {
-        this.primeiraTela = primeiraTela;
-
+    public void mostraMenuAdminGUI(){
         frame = new JFrame("Menu - Admin");
         frame.setContentPane(menuAdminPanel);
         frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
 
-        setUpListeners();
+        setUpListeners(this);
     }
 
-    private void setUpListeners(){
+    private void setUpListeners(MenuAdminTela tis){
+
+        btnEstoque.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                EstoqueTela estoqueTela = new EstoqueTela(primeiraTela ,tis);
+            }
+        });
+
+        btnCliente.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+
+        btnContas.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+
+        btnFuncionarios.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+
+        btnProdutosServico.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        btnVendas.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
         btnVoltar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -43,6 +85,8 @@ public class MenuAdminTela extends javax.swing.JFrame {
                 frame.setVisible(false);
             }
         });
+
+
     }
 
 

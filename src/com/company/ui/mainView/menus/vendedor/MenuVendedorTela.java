@@ -15,12 +15,11 @@ public class MenuVendedorTela {
     JFrame frame;
     private PrimeiraTela primeiraTela;
     private TelaCadastrarCliente telaCadastrarCliente;
-    public MenuVendedorTela() {
-
+    public MenuVendedorTela(PrimeiraTela prim) {
+        primeiraTela = prim;
     }
 
-    public void mostraMenuVendedorGUI(PrimeiraTela primeiraTela) {
-        this.primeiraTela = primeiraTela;
+    public void mostraMenuVendedorGUI() {
 
         frame = new JFrame("Menu - Admin");
         frame.setContentPane(menuVeterinarioPanel);
