@@ -51,6 +51,7 @@ public class MenuAdminTela extends javax.swing.JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 MostraClienteTela mostraClienteTela = new MostraClienteTela(primeiraTela, tis);
+                mostraClienteTela.mostraClienteGUI();
             }
         });
 
@@ -58,6 +59,7 @@ public class MenuAdminTela extends javax.swing.JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 MostrarContasTela mostrarContasTela = new MostrarContasTela(primeiraTela,tis);
+                mostrarContasTela.mostraContasTelaGUI();
             }
         });
 
@@ -65,6 +67,7 @@ public class MenuAdminTela extends javax.swing.JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 MostraFuncionarioTela mostraFuncionarioTela = new MostraFuncionarioTela(primeiraTela, tis);
+                mostraFuncionarioTela.mostraFuncionariosTelaGUI();
             }
         });
 
@@ -72,12 +75,14 @@ public class MenuAdminTela extends javax.swing.JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 MostrarProdutoServicoTela mostrarProdutoServicoTela = new MostrarProdutoServicoTela(primeiraTela,tis);
+                mostrarProdutoServicoTela.mostraProdutoServicoTelaGUI();
             }
         });
         btnVendas.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 RealizarVendaTela realizarVendaTela = new RealizarVendaTela(primeiraTela ,tis);
+                realizarVendaTela.realizaVendasTelaGUI();
             }
         });
         btnVoltar.addActionListener(new ActionListener() {
