@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.company.ui.mainView.menus.vendedor.TelaCadastrarCliesnte">
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.company.ui.mainView.menus.vendedor.TelaCadastrarCliente">
   <grid id="27dc6" binding="TelaCadastro" layout-manager="GridLayoutManager" row-count="12" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="200" left="200" bottom="200" right="200"/>
     <constraints>
-      <xy x="20" y="20" width="851" height="739"/>
+      <xy x="20" y="20" width="851" height="761"/>
     </constraints>
     <properties/>
     <border type="none"/>
     <children>
-      <component id="245c2" class="javax.swing.JTextField" binding="telCliente">
+      <component id="245c2" class="javax.swing.JTextField" binding="editTextTelCliente">
         <constraints>
           <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -16,7 +16,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="b7ecd" class="javax.swing.JTextField" binding="cpfCliente">
+      <component id="b7ecd" class="javax.swing.JTextField" binding="editTextCpfCliente">
         <constraints>
           <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -24,7 +24,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="6272" class="javax.swing.JTextField" binding="qtdComprasCliente">
+      <component id="6272" class="javax.swing.JTextField" binding="editTextQtdComprasCliente">
         <constraints>
           <grid row="9" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -65,7 +65,7 @@
           <text value="Confirmar"/>
         </properties>
       </component>
-      <component id="5ef9e" class="javax.swing.JTextField" binding="nomeCliente">
+      <component id="5ef9e" class="javax.swing.JTextField" binding="editTextNomeCliente">
         <constraints>
           <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -118,6 +118,14 @@
         </constraints>
         <properties>
           <text value="CADASTRO DE CLIENTES"/>
+        </properties>
+      </component>
+      <component id="c760f" class="javax.swing.JButton" binding="btnCancelar">
+        <constraints>
+          <grid row="11" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Cancelar"/>
         </properties>
       </component>
     </children>

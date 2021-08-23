@@ -56,7 +56,7 @@ public class LoginTela {
         setUpListener(frame);
     }
 
-    public void setUpListener(JFrame frame) {
+    private void setUpListener(JFrame frame) {
         btnVoltar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -74,7 +74,7 @@ public class LoginTela {
     }
 
 
-    public void efetuaLogin(String login, String senha) {
+    private void efetuaLogin(String login, String senha) {
         switch (getmUser()) {
             case "a" -> {
                 Admin admin = primeiraTela.data.getAdmin();
