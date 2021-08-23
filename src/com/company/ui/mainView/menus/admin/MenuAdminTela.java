@@ -43,6 +43,7 @@ public class MenuAdminTela extends javax.swing.JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 EstoqueTela estoqueTela = new EstoqueTela(primeiraTela, tis);
+                estoqueTela.mostraEstoqueTelaGUI();
             }
         });
 
