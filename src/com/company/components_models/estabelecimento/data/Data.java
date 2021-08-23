@@ -4,6 +4,9 @@ import com.company.components_models.estabelecimento.pessoas.funcionarios.admin.
 import com.company.components_models.estabelecimento.pessoas.funcionarios.tosador.Tosador;
 import com.company.components_models.estabelecimento.pessoas.funcionarios.vendedor.Vendedor;
 import com.company.components_models.estabelecimento.pessoas.funcionarios.veterinario.Veterinario;
+import com.company.components_models.estabelecimento.produto_servico.Produto;
+import com.company.components_models.estabelecimento.produto_servico.Servico;
+//import com.company.ui.mainView.menus.vendedor.TelaCadastrarCliesnte;
 
 import java.util.ArrayList;
 
@@ -17,26 +20,33 @@ public class Data {
     private ArrayList<Veterinario> veterinario;
     private ArrayList<Tosador> tosador;
     private ArrayList<Cliente> clientes;
+    private ArrayList<Produto> produtos;
+    private ArrayList<Servico> servicos;
 
-    public Data(ArrayList<Vendedor> vendedor, ArrayList<Veterinario> veterinario, ArrayList<Tosador> tosador, ArrayList<Cliente> clientes, Admin admin){
+    public Data(ArrayList<Vendedor> vendedor, ArrayList<Veterinario> veterinario, ArrayList<Tosador> tosador, ArrayList<Cliente> clientes, Admin admin, ArrayList<Produto> produtos, ArrayList<Servico> servicos){
 
         vendedor = new ArrayList<Vendedor>();
         veterinario = new ArrayList<Veterinario>();
         tosador = new ArrayList<Tosador>();
         clientes = new ArrayList<Cliente>();
+        produtos = new ArrayList<Produto>();
+        servicos = new ArrayList<Servico>();
 
         this.vendedor = vendedor;
         this.veterinario = veterinario;
         this.tosador = tosador;
         this.clientes = clientes;
         this.admin = admin;
-
+        this.produtos = produtos;
+        this.servicos = servicos;
     }
     public Data(){
         vendedor = new ArrayList<>();
         veterinario = new ArrayList<>();
         tosador = new ArrayList<>();
         clientes = new ArrayList<>();
+        produtos = new ArrayList<>();
+        servicos = new ArrayList<>();
 
         admin = new Admin("Juanesio","219219","(33)3236-1487","Administrador",7000.0,"admin", "admin");
 
@@ -60,6 +70,21 @@ public class Data {
         vet3 = new Cliente("Paula Muller", "39521401044", "(82)26615-9145", 5);
         clientes.add(vet3);
 
+        Produto vet4 = new Produto("Coleira", 35, 23.45);
+        produtos.add(vet4);
+        vet4 = new Produto("Sabonete", 42, 10.50);
+        produtos.add(vet4);
+        vet4 = new Produto("Mordedor", 15, 8.35);
+        produtos.add(vet4);
+        vet4 = new Produto("Racao", 150, 98.10);
+        produtos.add(vet4);
+
+        Servico vet5 = new Servico("Banho", "25 Min", 85.30, 0);
+        servicos.add(vet5);
+        vet5 = new Servico("Tosa", "12 Min", 58.15, 0);
+        servicos.add(vet5);
+        vet5 = new Servico("Consulta", "tempo variado", 158.58, 0);
+        servicos.add(vet5);
     }
     //criar metodos para a inserção e obtenção desses valores
 
@@ -92,6 +117,18 @@ public class Data {
     }
     public void setAdmin(Admin admin) {
         this.admin = admin;
+    }
+    public ArrayList<Produto> getProdutos(){
+        return produtos;
+    }
+    public void setProdutos(ArrayList<Produto> produtos){
+        this.produtos = produtos;
+    }
+    public ArrayList<Servico> getServicos(){
+        return servicos;
+    }
+    public void setServicos(ArrayList<Servico> servicos){
+        this.servicos = servicos;
     }
 
     public boolean existeVeterinario(String login, String senha){
