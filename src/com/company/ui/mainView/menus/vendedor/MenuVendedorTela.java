@@ -15,6 +15,7 @@ public class MenuVendedorTela {
     JFrame frame;
     private PrimeiraTela primeiraTela;
     private TelaCadastrarCliente telaCadastrarCliente;
+    private TelaVendas vendas;
     public MenuVendedorTela(PrimeiraTela prim) {
         primeiraTela = prim;
     }
@@ -28,6 +29,7 @@ public class MenuVendedorTela {
         frame.setVisible(true);
 
         telaCadastrarCliente = new TelaCadastrarCliente(primeiraTela, this);
+        vendas = new TelaVendas(primeiraTela, this);
         setUpListeners();
     }
 
@@ -40,12 +42,18 @@ public class MenuVendedorTela {
             }
         });
 
-
         btnCadastroCliente.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
                 telaCadastrarCliente.CadastraClienteGUI();
+                frame.setVisible(false);
+            }
+        });
+
+        btnVendas.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                vendas.TelaVendasGUI();
                 frame.setVisible(false);
             }
         });
