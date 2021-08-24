@@ -231,4 +231,29 @@ public class Data {
         Servico aux = new Servico();
         return (aux.buscaPrecoServico(servicos, nome) * qtd);
     }
+
+    public void addProdEstoque(String nome, int qtd, double preco){
+        Produto aux = new Produto(nome, qtd, preco);
+        produtos.add(aux);
+    }
+
+    public void newFuncionario(String nome, String cpf, String tel, String cargo, double salario, String user, String senha){
+        switch (cargo) {
+            case "vendedor" -> {
+                Vendedor aux = new Vendedor(nome, cpf, tel, cargo, salario, user, senha);
+                vendedor.add(aux);
+                break;
+            }
+            case "veterinario" -> {
+                Veterinario aux = new Veterinario(nome, cpf, tel, cargo, salario, user, senha);
+                veterinario.add(aux);
+                break;
+            }
+            case "tosador" -> {
+                Tosador aux = new Tosador(nome, cpf, tel, cargo, salario);
+                tosador.add(aux);
+                break;
+            }
+        }
+    }
 }

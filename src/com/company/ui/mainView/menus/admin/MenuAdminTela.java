@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MenuAdminTela extends javax.swing.JFrame {
+    public JFrame frame;
     private JPanel menuAdminPanel;
     private JButton btnEstoque;
     private JButton btnCliente;
@@ -18,9 +19,13 @@ public class MenuAdminTela extends javax.swing.JFrame {
     private JButton btnVendas;
     private JButton btnVoltar;
 
-    JFrame frame;
-    PrimeiraTela primeiraTela;
-    EstoqueTela estoqueTela;
+    private PrimeiraTela primeiraTela;
+    private EstoqueTela estoqueTela;
+    private MostraClienteTela mostraClienteTela;
+    private MostrarContasTela mostrarContasTela;
+    private MostraFuncionarioTela mostraFuncionarioTela;
+    private MostrarProdutoServicoTela mostrarProdutoServicoTela;
+    private RealizarVendaTela realizarVendaTela;
 
 
     public MenuAdminTela(PrimeiraTela prim) {
@@ -34,6 +39,13 @@ public class MenuAdminTela extends javax.swing.JFrame {
         frame.pack();
         frame.setVisible(true);
 
+        estoqueTela = new EstoqueTela(primeiraTela, this);
+        mostraClienteTela = new MostraClienteTela(primeiraTela, this);
+        mostrarContasTela = new MostrarContasTela(primeiraTela, this);
+        mostraFuncionarioTela = new MostraFuncionarioTela(primeiraTela, this);
+        mostrarProdutoServicoTela = new MostrarProdutoServicoTela(primeiraTela, this);
+        realizarVendaTela = new RealizarVendaTela(primeiraTela, this);
+
         setUpListeners(this);
     }
 
@@ -42,7 +54,7 @@ public class MenuAdminTela extends javax.swing.JFrame {
         btnEstoque.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                EstoqueTela estoqueTela = new EstoqueTela(primeiraTela, tis);
+                //EstoqueTela estoqueTela = new EstoqueTela(primeiraTela, tis);
                 estoqueTela.mostraEstoqueTelaGUI();
             }
         });
@@ -50,7 +62,7 @@ public class MenuAdminTela extends javax.swing.JFrame {
         btnCliente.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                MostraClienteTela mostraClienteTela = new MostraClienteTela(primeiraTela, tis);
+                //MostraClienteTela mostraClienteTela = new MostraClienteTela(primeiraTela, tis);
                 mostraClienteTela.mostraClienteGUI();
             }
         });
@@ -58,7 +70,7 @@ public class MenuAdminTela extends javax.swing.JFrame {
         btnContas.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                MostrarContasTela mostrarContasTela = new MostrarContasTela(primeiraTela,tis);
+                //MostrarContasTela mostrarContasTela = new MostrarContasTela(primeiraTela,tis);
                 mostrarContasTela.mostraContasTelaGUI();
             }
         });
@@ -66,7 +78,7 @@ public class MenuAdminTela extends javax.swing.JFrame {
         btnFuncionarios.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                MostraFuncionarioTela mostraFuncionarioTela = new MostraFuncionarioTela(primeiraTela, tis);
+                //MostraFuncionarioTela mostraFuncionarioTela = new MostraFuncionarioTela(primeiraTela, tis);
                 mostraFuncionarioTela.mostraFuncionariosTelaGUI();
             }
         });
@@ -74,14 +86,14 @@ public class MenuAdminTela extends javax.swing.JFrame {
         btnProdutosServico.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                MostrarProdutoServicoTela mostrarProdutoServicoTela = new MostrarProdutoServicoTela(primeiraTela,tis);
+                //MostrarProdutoServicoTela mostrarProdutoServicoTela = new MostrarProdutoServicoTela(primeiraTela,tis);
                 mostrarProdutoServicoTela.mostraProdutoServicoTelaGUI();
             }
         });
         btnVendas.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                RealizarVendaTela realizarVendaTela = new RealizarVendaTela(primeiraTela ,tis);
+                //RealizarVendaTela realizarVendaTela = new RealizarVendaTela(primeiraTela ,tis);
                 realizarVendaTela.realizaVendasTelaGUI();
             }
         });

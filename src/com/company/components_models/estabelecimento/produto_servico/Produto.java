@@ -43,11 +43,16 @@ public class Produto {
         return preco;
     }
 
-    public void addNoEstoque(ArrayList<Produto> produtos, String nome, int qtd){
+    public void addNoEstoque(ArrayList<Produto> produtos, String nome, int qtd, double preco){
         for (Produto prod : produtos){
             if (Objects.equals(prod.getNome(), nome)){
                 setQtd( prod.getQtd() + qtd);
+                setPreco(preco);
                 break;
+            }
+            else {
+                Produto aux = new Produto(nome, qtd, preco);
+                produtos.add(aux);
             }
         }
     }
