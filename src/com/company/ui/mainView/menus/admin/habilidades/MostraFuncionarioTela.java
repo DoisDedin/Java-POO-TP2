@@ -10,6 +10,9 @@ public class MostraFuncionarioTela {
     private PrimeiraTela primeiraTela;
     private MenuAdminTela menuAdminTela;
     private JPanel funcionariosPanel;
+    private JButton cadastrarFuncionarioButton;
+    private JButton mostrarFuncionariosButton;
+    private JButton voltarButton;
 
     private JFrame frame;
 

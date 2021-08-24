@@ -8,6 +8,8 @@ import javax.swing.*;
 public class EstoqueTela {
 
     private JPanel estoquePanel;
+    private JButton adicionarProdutosButton;
+    private JButton voltarButton;
 
     private PrimeiraTela primeiraTela;
     private MenuAdminTela menuAdminTela;

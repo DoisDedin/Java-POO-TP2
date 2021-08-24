@@ -10,6 +10,8 @@ public class MostrarProdutoServicoTela {
     private PrimeiraTela primeiraTela;
     private MenuAdminTela menuAdminTela;
     private JPanel prod_servPanel;
+    private JButton visualizarProdutosEServiçosButton;
+    private JButton voltarButton;
 
     private JFrame frame;
 

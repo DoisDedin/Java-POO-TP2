@@ -12,6 +12,9 @@ public class RealizarVendaTela {
 
     private JFrame frame;
     private JPanel vendasPanel;
+    private JButton produtosButton;
+    private JButton serviçosButton;
+    private JButton voltarButton;
 
     public RealizarVendaTela(PrimeiraTela prim, MenuAdminTela menuAdmin) {
         primeiraTela = prim;
@@ -30,5 +33,9 @@ public class RealizarVendaTela {
 
     private void setUpListener(){
 
+    }
+
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
     }
 }

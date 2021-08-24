@@ -11,6 +11,9 @@ public class MostrarContasTela {
     private PrimeiraTela primeiraTela;
     private MenuAdminTela menuAdminTela;
     private JPanel contasPanel;
+    private JButton pagarContaButton;
+    private JButton visualizarContasButton;
+    private JButton voltarButton;
 
     private JFrame frame;
 

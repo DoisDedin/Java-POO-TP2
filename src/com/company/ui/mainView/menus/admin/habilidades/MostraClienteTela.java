@@ -10,6 +10,9 @@ public class MostraClienteTela {
     private PrimeiraTela primeiraTela;
     private MenuAdminTela menuAdminTela;
     private JPanel MostraClientePanel;
+    private JButton cadastrarButton;
+    private JButton mostrarClientesButton;
+    private JButton voltarButton;
 
     private JFrame frame;
 
