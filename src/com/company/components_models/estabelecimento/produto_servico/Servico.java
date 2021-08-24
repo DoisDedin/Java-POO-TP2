@@ -1,5 +1,6 @@
 package com.company.components_models.estabelecimento.produto_servico;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 public class Servico {
@@ -13,6 +14,10 @@ public class Servico {
         setTempo(tempo);
         setPreco(preco);
         setQtd(qtd);
+    }
+
+    public Servico() {
+
     }
 
     private void setNome(String nome) {
@@ -53,5 +58,6 @@ public class Servico {
             case 1 -> servicos.get(1).setQtd(qtd);
             case 2 -> servicos.get(2).setQtd(qtd);
         }
+        JOptionPane.showMessageDialog(null, "Ordem gerada com sucesso", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
     }
 }

@@ -82,7 +82,7 @@ public class LoginTela {
                 Admin admin = primeiraTela.data.getAdmin();
 
                 if (Objects.equals(admin.getUser(), login) && Objects.equals(admin.getSenha(), senha)) {
-                    JOptionPane.showMessageDialog(null, "rolousdasdasda");
+                    JOptionPane.showMessageDialog(null, "LOGOU ADMINISTRADOR");
                     menuAdminTela = new MenuAdminTela(primeiraTela);
                     menuAdminTela.mostraMenuAdminGUI();
                     frame.setVisible(false);

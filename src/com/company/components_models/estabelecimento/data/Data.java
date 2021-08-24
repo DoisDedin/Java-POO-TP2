@@ -6,8 +6,10 @@ import com.company.components_models.estabelecimento.pessoas.funcionarios.vended
 import com.company.components_models.estabelecimento.pessoas.funcionarios.veterinario.Veterinario;
 import com.company.components_models.estabelecimento.produto_servico.Produto;
 import com.company.components_models.estabelecimento.produto_servico.Servico;
+import com.company.ui.mainView.menus.vendedor.TelaCadastrarCliente;
 //import com.company.ui.mainView.menus.vendedor.TelaCadastrarCliesnte;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 public class Data {
@@ -48,28 +50,34 @@ public class Data {
         produtos = new ArrayList<>();
         servicos = new ArrayList<>();
 
+        //cria o ADMIN padrão
         admin = new Admin("Juanesio","219219","(33)3236-1487","Administrador",7000.0,"admin", "admin");
 
+        //cria VENDEDORES
         Vendedor vet = new Vendedor("Joao da Mata", "15578922230", "(23)40891-7331", "vendedor", 1200.10, "vend1", "5533");
         vendedor.add(vet);
         vet = new Vendedor("Bryan O'Conner", "84221454059", "(10)55022-2023", "vendedor", 1250.10, "vend2", "1973");
         vendedor.add(vet);
 
+        //cria VETERINARIOS
         Veterinario vet1 = new Veterinario("Paolo Guerrero", "43325489060", "(26)76518-5348", "veterinario", 3230.0, "vet2", "1984");
         veterinario.add(vet1);
         vet1 = new Veterinario("Hinata Hyuga", "75807674065", "(72)79764-9945", "veterinario", 3250.0, "vet1", "1113");
         veterinario.add(vet1);
 
+        //cria TOSADORES
         Tosador vet2 = new Tosador("Larissa Silva", "29619550099", "(20)75743-8099", "tosador", 1100.0);
         tosador.add(vet2);
         vet2 = new Tosador("Carlos Eduardo", "06733613069", "(77)26843-9252", "tosador", 1100.0);
         tosador.add(vet2);
 
+        //cria CLIENTES
         Cliente vet3 = new Cliente("Paulo Plinio", "37283338080", "(60)47950-4741", 10);
         clientes.add(vet3);
         vet3 = new Cliente("Paula Muller", "39521401044", "(82)26615-9145", 5);
         clientes.add(vet3);
 
+        //cria a lista de produtos iniciais
         Produto vet4 = new Produto("Coleira", 35, 23.45);
         produtos.add(vet4);
         vet4 = new Produto("Sabonete", 42, 10.50);
@@ -79,6 +87,7 @@ public class Data {
         vet4 = new Produto("Racao", 150, 98.10);
         produtos.add(vet4);
 
+        //cria os serciços
         Servico vet5 = new Servico("Banho", "25 Min", 85.30, 0);
         servicos.add(vet5);
         vet5 = new Servico("Tosa", "12 Min", 58.15, 0);
@@ -131,31 +140,57 @@ public class Data {
         this.servicos = servicos;
     }
 
+    //verifica se o veterinario existe
     public boolean existeVeterinario(String login, String senha){
-        return true;
+        for (Veterinario value : veterinario) {
+            if (login.equals(value.getUser()) && senha.equals(value.getSenha())) {
+                return true;
+            }
+        }
+        return false;
     }
 
+    //verifica se o vendedor existe
     public boolean existeVendedor(String login, String senha){
-        return true;
+        for (Vendedor value : vendedor) {
+            if (login.equals(value.getUser()) && senha.equals(value.getSenha())) {
+                return true;
+            }
+        }
+        return false;
     }
 
-    public  void newCliente(String nome, String cpf, String telefone , Integer qtdCompras){
-//        TelaCadastrarCliesnte novo = new TelaCadastrarCliesnte();
-//        novo.setVisible(true);
-//
-//        while ("nulo".equals(novo.getNome()) && "nulo".equals(novo.getCpf()) && "nulo".equals(novo.getTel()) && "nulo".equals(novo.getQtdCompras())){
-//            System.out.println(novo.getNome() + " " + novo.getCpf() + " " + novo.getTel() + " " + novo.getQtdCompras());
-//        }
-//
-//        int qtd = Integer.parseInt(novo.getQtdCompras());
-//        Cliente add = new Cliente(novo.getNome(), novo.getCpf(), novo.getTel(), qtd);
-//        boolean verification = clientes.add(add);
-//
-//        if (!verification){
-//            JOptionPane.showMessageDialog(null, "NÃO FOI POSSIVEL CADASTRAR CLIENTE", "Error",JOptionPane.ERROR_MESSAGE);
-//        }
-//        else JOptionPane.showMessageDialog(null, "CLIENTE CADASTRADO", "Cadastro",JOptionPane.PLAIN_MESSAGE);
+    //cadastra novo um cliente
+    public  void newCliente(String nome, String cpf, String telefone , int qtdCompras){
+
+        Cliente add = new Cliente(nome, cpf, telefone, qtdCompras);
+        boolean verification = clientes.add(add);
+
+        //add.imprimeClientesCompleto(clientes);
+
+        if (!verification){
+            JOptionPane.showMessageDialog(null, "NÃO FOI POSSIVEL CADASTRAR CLIENTE", "Error",JOptionPane.ERROR_MESSAGE);
+        }
+        else JOptionPane.showMessageDialog(null, "CLIENTE CADASTRADO", "Cadastro",JOptionPane.PLAIN_MESSAGE);
    }
 
+   //realiza a venda de um produto
+    public void vendeProduto(String nome, int qtdProdutos){
+        Produto prod = new Produto();
+        prod.tiraDoEstoque(produtos, nome, qtdProdutos);
+    }
 
+    //realiza a venda de um serviço
+    public void vendeServicos(String nome, int qtdAnimais){
+        Servico serv = new Servico();
+        int posi;
+        if (nome.equals("Banho")){
+            posi = 0;
+        }
+        else if (nome.equals("Tosa")){
+            posi = 1;
+        }
+        else posi = 2;
+        serv.gerarOrdem(servicos, posi, qtdAnimais);
+    }
 }

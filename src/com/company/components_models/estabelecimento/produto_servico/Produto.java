@@ -1,5 +1,6 @@
 package com.company.components_models.estabelecimento.produto_servico;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -12,6 +13,10 @@ public class Produto {
         setNome(nome);
         setQtd(qtd);
         setPreco(preco);
+    }
+
+    public Produto() {
+
     }
 
     public void setPreco(double preco) {
@@ -52,10 +57,12 @@ public class Produto {
         for (Produto prod : produtos){
             if (Objects.equals(prod.getNome(), nome)){
                 if (prod.getQtd() < qtd){
-                    System.out.println("A quantidade desejada excede o estabelecimento");
-                    System.out.println("Quantidade em estabelecimento: " + prod.getQtd());
+                    JOptionPane.showMessageDialog(null, "A quantidade desejada excede o estabelecimento" + "\n" + "Quantidade em estabelecimento: " + prod.getQtd(), "Erro", JOptionPane.ERROR_MESSAGE);
                 }
-                else produtos.get(i).setQtd(prod.getQtd() - qtd);
+                else {
+                    produtos.get(i).setQtd(prod.getQtd() - qtd);
+                    JOptionPane.showMessageDialog(null, "Venda realizada com sucesso", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+                }
                 break;
             }
             i++;

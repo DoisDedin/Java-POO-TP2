@@ -5,6 +5,7 @@ import com.company.ui.mainView.entradaApp.PrimeiraTela;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Objects;
 
 public class TelaQuantidade {
     private JTextField qtdAnimais;
@@ -12,7 +13,7 @@ public class TelaQuantidade {
     private JButton confirmarButton;
     private JLabel quantidadeLabel;
     private JLabel QUANTIDADEDEANIMAISLabel;
-    private JComboBox comboBox1;
+    private JComboBox selecServ;
     private JLabel serviçoLabel;
     private JButton voltarButton;
 
@@ -42,6 +43,19 @@ public class TelaQuantidade {
             public void actionPerformed(ActionEvent e) {
                 menuVend.frame.setVisible(true);
                 frame.setVisible(false);
+            }
+        });
+
+        confirmarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (Objects.equals(selecServ.getSelectedItem(), "...")){
+                    JOptionPane.showMessageDialog(null, "Opção Invalida", "Erro", JOptionPane.ERROR_MESSAGE);
+                }
+                else {
+                    int qtd = Integer.parseInt(qtdAnimais.getText());
+                    primeiraTela.data.vendeServicos((String) Objects.requireNonNull(selecServ.getSelectedItem()), qtd);
+                }
             }
         });
     }

@@ -1,13 +1,14 @@
 package com.company.ui.mainView.menus.veterinario;
 
 import com.company.ui.mainView.entradaApp.PrimeiraTela;
+import com.company.ui.mainView.menus.vendedor.TelaCadastrarCliente;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MenuVeterinarioTela {
-    private JButton btnMostraClienre;
+    private JButton btnMostraCliente;
     private JPanel panelMenuVeterinario;
     private JButton btnTratamento;
     private JButton btnOrdemServico;
@@ -15,6 +16,9 @@ public class MenuVeterinarioTela {
 
     JFrame frame;
     private PrimeiraTela primeiraTela;
+    private TelaMostraCliente mostraCliente;
+    private TelaInfo info;
+    private TelaOrdens ordens;
 
     public MenuVeterinarioTela(PrimeiraTela prim) {
         primeiraTela = prim;
@@ -28,6 +32,10 @@ public class MenuVeterinarioTela {
         frame.pack();
         frame.setVisible(true);
 
+        mostraCliente = new TelaMostraCliente(primeiraTela, this);
+        info = new TelaInfo(primeiraTela, this);
+        ordens = new TelaOrdens(primeiraTela, this);
+
         setUpListeners();
     }
 
@@ -36,6 +44,30 @@ public class MenuVeterinarioTela {
             @Override
             public void actionPerformed(ActionEvent e) {
                 primeiraTela.frame.setVisible(true);
+                frame.setVisible(false);
+            }
+        });
+
+        btnMostraCliente.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mostraCliente.TelaMostraClientesGUI();
+                frame.setVisible(false);
+            }
+        });
+
+        btnOrdemServico.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ordens.TelaOrdensGUI();
+                frame.setVisible(false);
+            }
+        });
+
+        btnTratamento.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                info.TelaInfoGUI();
                 frame.setVisible(false);
             }
         });

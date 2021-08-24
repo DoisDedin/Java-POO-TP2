@@ -2,6 +2,7 @@ package com.company.components_models.estabelecimento.pessoas.clientes;
 
 import com.company.components_models.estabelecimento.pessoas.Pessoa;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Objects;
@@ -33,14 +34,15 @@ public class Cliente extends Pessoa {
     public void imprimeClientesCompleto(ArrayList<Cliente> clientes){
         System.out.println("\t\tClientes");
         for (Cliente cliente : clientes) {
-            System.out.println("Nome: " + cliente.getNome() + "CPF: " + cliente.getCPF()+ "Telefone: " + cliente.getTel() + "Numero de compras: " + cliente.getQtdCompras());
+            JOptionPane.showMessageDialog(null, "Nome: " + cliente.getNome() + "\tCPF: " + cliente.getCPF()+ "\tTelefone: " + cliente.getTel() + "\tNumero de compras: " + cliente.getQtdCompras(), "Cliente",JOptionPane.INFORMATION_MESSAGE);
         }
     }
 
     public void mostraCliente(ArrayList<Cliente> clientes, String nome){
         for (Cliente cliente : clientes) {
             if (Objects.equals(cliente.getNome(), nome)){
-                System.out.println("Nome: " + cliente.getNome() + "CPF: " + cliente.getCPF()+ "Telefone: " + cliente.getTel() + "Numero de compras: " + cliente.getQtdCompras());
+                JOptionPane.showMessageDialog(null, "Nome: " + cliente.getNome() + "\tCPF: " + cliente.getCPF()+ "\tTelefone: " + cliente.getTel() + "\tNumero de compras: " + cliente.getQtdCompras(), "Cliente",JOptionPane.INFORMATION_MESSAGE);
+                //System.out.println();
             }
         }
     }
