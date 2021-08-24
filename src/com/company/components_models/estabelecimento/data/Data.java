@@ -10,6 +10,7 @@ import com.company.ui.mainView.menus.vendedor.TelaCadastrarCliente;
 //import com.company.ui.mainView.menus.vendedor.TelaCadastrarCliesnte;
 
 import javax.swing.*;
+import java.lang.ref.Cleaner;
 import java.util.ArrayList;
 
 public class Data {
@@ -24,6 +25,7 @@ public class Data {
     private ArrayList<Cliente> clientes;
     private ArrayList<Produto> produtos;
     private ArrayList<Servico> servicos;
+    private ArrayList<String> informacoes;
 
     public Data(ArrayList<Vendedor> vendedor, ArrayList<Veterinario> veterinario, ArrayList<Tosador> tosador, ArrayList<Cliente> clientes, Admin admin, ArrayList<Produto> produtos, ArrayList<Servico> servicos){
 
@@ -49,6 +51,7 @@ public class Data {
         clientes = new ArrayList<>();
         produtos = new ArrayList<>();
         servicos = new ArrayList<>();
+        informacoes = new ArrayList<>();
 
         //cria o ADMIN padrão
         admin = new Admin("Juanesio","219219","(33)3236-1487","Administrador",7000.0,"admin", "admin");
@@ -140,6 +143,14 @@ public class Data {
         this.servicos = servicos;
     }
 
+    public ArrayList<String> getInformacoes() {
+        return informacoes;
+    }
+
+    public void setInformacoes(ArrayList<String> informacoes) {
+        this.informacoes = informacoes;
+    }
+
     //verifica se o veterinario existe
     public boolean existeVeterinario(String login, String senha){
         for (Veterinario value : veterinario) {
@@ -192,5 +203,32 @@ public class Data {
         }
         else posi = 2;
         serv.gerarOrdem(servicos, posi, qtdAnimais);
+    }
+
+    public void buscaCliente(String nome){
+        Cliente busca = new Cliente();
+        busca.mostraCliente(clientes, nome);
+    }
+
+    public double retornaPrecoConsulta(){
+        return servicos.get(2).getPreco();
+    }
+
+    public int retornaQuantidadeConsulta(){
+        return servicos.get(2).getQtd();
+    }
+
+    public void guardaInfoConsulta(String Info){
+        informacoes.add(Info);
+    }
+
+    public double retornaPrecoTotal(String nome, int qtd){
+        Produto aux = new Produto();
+        return (aux.buscaPreçoProduto(produtos, nome) * qtd);
+    }
+
+    public double retonaPrecoServ(String nome, int qtd){
+        Servico aux = new Servico();
+        return (aux.buscaPrecoServico(servicos, nome) * qtd);
     }
 }

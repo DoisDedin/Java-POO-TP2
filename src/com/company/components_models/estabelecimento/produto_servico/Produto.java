@@ -68,4 +68,15 @@ public class Produto {
             i++;
         }
     }
+
+    public double buscaPreçoProduto(ArrayList<Produto> produtos, String nome){
+        double aux = 0;
+        for (Produto produto : produtos) {
+            if (Objects.equals(produto.getNome(), nome)) {
+                aux = produto.getPreco();
+                break;
+            }
+        }
+        return aux;
+    }
 }

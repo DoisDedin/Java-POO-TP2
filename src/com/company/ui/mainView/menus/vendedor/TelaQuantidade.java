@@ -54,6 +54,7 @@ public class TelaQuantidade {
                 }
                 else {
                     int qtd = Integer.parseInt(qtdAnimais.getText());
+                    JOptionPane.showMessageDialog(null, "Valor final: R$ " + " " + primeiraTela.data.retonaPrecoServ((String) selecServ.getSelectedItem(), qtd), "Valor", JOptionPane.PLAIN_MESSAGE);
                     primeiraTela.data.vendeServicos((String) Objects.requireNonNull(selecServ.getSelectedItem()), qtd);
                 }
             }

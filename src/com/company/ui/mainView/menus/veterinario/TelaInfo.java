@@ -7,7 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class TelaInfo {
-    private JTextField textField1;
+    private JTextField dadosConsulta;
     private JPanel panel1;
     private JButton confirmarButton;
     private JButton voltarButton;
@@ -37,6 +37,15 @@ public class TelaInfo {
             public void actionPerformed(ActionEvent e) {
                 menuVeterinarioTela.frame.setVisible(true);
                 frame.setVisible(false);
+            }
+        });
+
+        confirmarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String info = dadosConsulta.getText();
+                primeiraTela.data.guardaInfoConsulta(info);
+                dadosConsulta.setText("");
             }
         });
     }

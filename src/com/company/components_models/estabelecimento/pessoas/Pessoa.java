@@ -11,6 +11,10 @@ public class Pessoa {
         setTel(tel);
     }
 
+    public Pessoa() {
+
+    }
+
     public void setNome(String nome){
         this.nome = nome;
     }

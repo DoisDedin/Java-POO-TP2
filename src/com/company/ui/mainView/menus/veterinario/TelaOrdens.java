@@ -5,11 +5,18 @@ import com.company.ui.mainView.entradaApp.PrimeiraTela;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DateFormat;
+import java.util.Date;
 
 public class TelaOrdens {
     private JPanel telaOrdensPanel;
-    private JTextField textField1;
     private JButton voltarButton;
+    private JLabel qtdAnimaisTXT;
+    private JLabel consultaslTXT;
+    private JLabel qtdFix;
+    private JLabel consultaFIX;
+    private JLabel precoFIX;
+    private JLabel preçoTotalTXT;
 
     public JFrame frame;
 
@@ -38,5 +45,19 @@ public class TelaOrdens {
                 frame.setVisible(false);
             }
         });
+
+        double preco = primeiraTela.data.retornaPrecoConsulta();
+        int qtd = primeiraTela.data.retornaQuantidadeConsulta();
+
+        preco = preco * qtd;
+
+        qtdFix.setText(String.valueOf(qtd));
+
+        precoFIX.setText("R$ " + preco);
+
+        java.util.Date d = new Date();
+        String dStr = java.text.DateFormat.getDateInstance(DateFormat.MEDIUM).format(d);
+
+        consultaFIX.setText(dStr);
     }
 }

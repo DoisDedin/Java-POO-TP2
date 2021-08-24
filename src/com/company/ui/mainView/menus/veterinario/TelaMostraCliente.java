@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 
 public class TelaMostraCliente {
     private JPanel TelaMC;
-    private JTextField textField1;
+    private JTextField nomeClienteBusca;
     private JButton buscarButton;
     private JButton voltarButton;
 
@@ -37,6 +37,14 @@ public class TelaMostraCliente {
             public void actionPerformed(ActionEvent e) {
                 menuVeterinarioTela.frame.setVisible(true);
                 frame.setVisible(false);
+            }
+        });
+
+        buscarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String nome = nomeClienteBusca.getText();
+                primeiraTela.data.buscaCliente(nome);
             }
         });
     }

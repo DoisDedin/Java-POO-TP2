@@ -16,6 +16,10 @@ public class Cliente extends Pessoa {
         setQtdCompras(qtdCompras);
     }
 
+    public Cliente() {
+        super();
+    }
+
     public void setQtdCompras(int qtdCompras){
         this.qtdCompras = qtdCompras;
     }
@@ -41,7 +45,7 @@ public class Cliente extends Pessoa {
     public void mostraCliente(ArrayList<Cliente> clientes, String nome){
         for (Cliente cliente : clientes) {
             if (Objects.equals(cliente.getNome(), nome)){
-                JOptionPane.showMessageDialog(null, "Nome: " + cliente.getNome() + "\tCPF: " + cliente.getCPF()+ "\tTelefone: " + cliente.getTel() + "\tNumero de compras: " + cliente.getQtdCompras(), "Cliente",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Nome:  " + cliente.getNome() + "  " + "CPF:  " + cliente.getCPF() + "  " + "Telefone:  " + cliente.getTel() + "  " + "Numero de compras:  " + cliente.getQtdCompras(), "Cliente",JOptionPane.INFORMATION_MESSAGE);
                 //System.out.println();
             }
         }

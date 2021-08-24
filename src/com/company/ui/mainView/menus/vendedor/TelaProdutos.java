@@ -56,6 +56,7 @@ public class TelaProdutos {
                 }
                 else {
                     int qtd = Integer.parseInt(qtdProd.getText());
+                    JOptionPane.showMessageDialog(null, "Valor final: R$ " + " " + primeiraTela.data.retornaPrecoTotal((String) selecProduto.getSelectedItem(), qtd), "Valor", JOptionPane.PLAIN_MESSAGE);
                     primeiraTela.data.vendeProduto((String) selecProduto.getSelectedItem(), qtd);
                 }
             }

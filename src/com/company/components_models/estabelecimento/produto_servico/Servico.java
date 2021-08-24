@@ -2,6 +2,7 @@ package com.company.components_models.estabelecimento.produto_servico;
 
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Servico {
     private String nome;
@@ -59,5 +60,16 @@ public class Servico {
             case 2 -> servicos.get(2).setQtd(qtd);
         }
         JOptionPane.showMessageDialog(null, "Ordem gerada com sucesso", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    public double buscaPrecoServico(ArrayList<Servico> servicos, String nome){
+        double aux = 0;
+        for (Servico servico : servicos) {
+            if (Objects.equals(servico.getNome(), nome)) {
+                aux = servico.getPreco();
+                break;
+            }
+        }
+        return aux;
     }
 }
