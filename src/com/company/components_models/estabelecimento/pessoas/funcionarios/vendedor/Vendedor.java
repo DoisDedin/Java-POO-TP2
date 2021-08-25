@@ -2,6 +2,7 @@ package com.company.components_models.estabelecimento.pessoas.funcionarios.vende
 
 import com.company.components_models.estabelecimento.pessoas.funcionarios.Funcionario;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -13,6 +14,10 @@ public class Vendedor extends Funcionario {
         super(nome, CPF, tel, cargo, salario);
         setUser(user);
         setSenha(senha);
+    }
+
+    public Vendedor() {
+        super();
     }
 
     public void setUser(String user) {
@@ -38,10 +43,12 @@ public class Vendedor extends Funcionario {
         }
     }
 
-    public void imprimeVendedorCompleto(ArrayList<Vendedor> vendedores){
+    public void imprimeVendedorCompleto(ArrayList<Vendedor> vendedores, String nome){
         System.out.println("\t\tVendedores");
         for (Vendedor vender : vendedores) {
-            System.out.println("Nome: " + vender.getNome() + "CPF: " + vender.getCPF()+ "Telefone: " + vender.getTel() + "Cargo: " + vender.getCargo() + "Salario: R$ " + vender.getSalario());
+            if (Objects.equals(vender.getNome(), nome)){
+                JOptionPane.showMessageDialog(null, "Nome: " + vender.getNome() + " " + "CPF: " + vender.getCPF()+ " " + "Telefone: " + vender.getTel() + "Cargo: " + vender.getCargo() + " " + "Salario: R$ " + vender.getSalario(), "Tosador",JOptionPane.INFORMATION_MESSAGE);
+            }
         }
     }
 

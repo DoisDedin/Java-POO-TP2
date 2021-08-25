@@ -12,6 +12,10 @@ public class Funcionario extends Pessoa{
         setSalario(salario);
     }
 
+    public Funcionario() {
+
+    }
+
     public void setCargo(String cargo) {
         this.cargo = cargo;
     }

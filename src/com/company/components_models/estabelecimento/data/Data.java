@@ -1,4 +1,5 @@
 package com.company.components_models.estabelecimento.data;
+import com.company.components_models.estabelecimento.compras_pagamentos.Pagamento;
 import com.company.components_models.estabelecimento.pessoas.clientes.Cliente;
 import com.company.components_models.estabelecimento.pessoas.funcionarios.admin.Admin;
 import com.company.components_models.estabelecimento.pessoas.funcionarios.tosador.Tosador;
@@ -26,8 +27,9 @@ public class Data {
     private ArrayList<Produto> produtos;
     private ArrayList<Servico> servicos;
     private ArrayList<String> informacoes;
+    private ArrayList<Pagamento> contas;
 
-    public Data(ArrayList<Vendedor> vendedor, ArrayList<Veterinario> veterinario, ArrayList<Tosador> tosador, ArrayList<Cliente> clientes, Admin admin, ArrayList<Produto> produtos, ArrayList<Servico> servicos){
+    public Data(ArrayList<Vendedor> vendedor, ArrayList<Veterinario> veterinario, ArrayList<Tosador> tosador, ArrayList<Cliente> clientes, Admin admin, ArrayList<Produto> produtos, ArrayList<Servico> servicos, ArrayList<Pagamento> contas){
 
         vendedor = new ArrayList<Vendedor>();
         veterinario = new ArrayList<Veterinario>();
@@ -35,6 +37,7 @@ public class Data {
         clientes = new ArrayList<Cliente>();
         produtos = new ArrayList<Produto>();
         servicos = new ArrayList<Servico>();
+        contas = new ArrayList<Pagamento>();
 
         this.vendedor = vendedor;
         this.veterinario = veterinario;
@@ -43,6 +46,7 @@ public class Data {
         this.admin = admin;
         this.produtos = produtos;
         this.servicos = servicos;
+        this.contas = contas;
     }
     public Data(){
         vendedor = new ArrayList<>();
@@ -52,6 +56,7 @@ public class Data {
         produtos = new ArrayList<>();
         servicos = new ArrayList<>();
         informacoes = new ArrayList<>();
+        contas = new ArrayList<>();
 
         //cria o ADMIN padrão
         admin = new Admin("Juanesio","219219","(33)3236-1487","Administrador",7000.0,"admin", "admin");
@@ -97,6 +102,15 @@ public class Data {
         servicos.add(vet5);
         vet5 = new Servico("Consulta", "tempo variado", 158.58, 0);
         servicos.add(vet5);
+
+        Pagamento vet6 = new Pagamento("23/08/2021", "20/08/2021", "Conta de luz");
+        contas.add(vet6);
+        vet6 = new Pagamento("05/08/2021", "25/08/2021", "Fornecedores");
+        contas.add(vet6);
+        vet6 = new Pagamento("08/08/2021", "15/08/2021", "Internet");
+        contas.add(vet6);
+        vet6 = new Pagamento("10/08/2021", "10/08/2021", "Conta de água");
+        contas.add(vet6);
     }
     //criar metodos para a inserção e obtenção desses valores
 
@@ -141,6 +155,12 @@ public class Data {
     }
     public void setServicos(ArrayList<Servico> servicos){
         this.servicos = servicos;
+    }
+    public ArrayList<Pagamento> getContas(){
+        return contas;
+    }
+    public void setContas(ArrayList<Pagamento> contas){
+        this.contas = contas;
     }
 
     public ArrayList<String> getInformacoes() {
@@ -208,6 +228,16 @@ public class Data {
     public void buscaCliente(String nome){
         Cliente busca = new Cliente();
         busca.mostraCliente(clientes, nome);
+    }
+
+    public void buscaFuncionario(String nome){
+        Vendedor aux = new Vendedor();
+        Veterinario aux2 = new Veterinario();
+        Tosador aux3 = new Tosador();
+
+        aux.imprimeVendedorCompleto(vendedor, nome);
+        aux2.imprimeVeterinarioCompleto(veterinario, nome);
+        aux3.imprimeTosadorCompleto(tosador, nome);
     }
 
     public double retornaPrecoConsulta(){

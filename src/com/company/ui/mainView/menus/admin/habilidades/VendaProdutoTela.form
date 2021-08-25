@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.company.ui.mainView.menus.admin.habilidades.VendaProdutoTela">
-  <grid id="27dc6" layout-manager="GridLayoutManager" row-count="8" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="TelaProdutos" layout-manager="GridLayoutManager" row-count="8" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="200" left="200" bottom="200" right="200"/>
     <constraints>
       <xy x="20" y="20" width="662" height="609"/>
@@ -8,7 +8,7 @@
     <properties/>
     <border type="none"/>
     <children>
-      <component id="8493f" class="javax.swing.JComboBox" binding="comboBox1" default-binding="true">
+      <component id="8493f" class="javax.swing.JComboBox" binding="selecProduto">
         <constraints>
           <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -22,7 +22,7 @@
           </model>
         </properties>
       </component>
-      <component id="b804f" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+      <component id="b804f" class="javax.swing.JTextField" binding="qtdProd">
         <constraints>
           <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>

@@ -22,7 +22,7 @@ public class MenuAdminTela extends javax.swing.JFrame {
     private PrimeiraTela primeiraTela;
     private EstoqueTela estoqueTela;
     private MostraClienteTela mostraClienteTela;
-    private MostrarContasTela mostrarContasTela;
+    private PagarTela pagarTela;
     private MostraFuncionarioTela mostraFuncionarioTela;
     private MostrarProdutoServicoTela mostrarProdutoServicoTela;
     private RealizarVendaTela realizarVendaTela;
@@ -41,7 +41,7 @@ public class MenuAdminTela extends javax.swing.JFrame {
 
         estoqueTela = new EstoqueTela(primeiraTela, this);
         mostraClienteTela = new MostraClienteTela(primeiraTela, this);
-        mostrarContasTela = new MostrarContasTela(primeiraTela, this);
+        pagarTela = new PagarTela(primeiraTela, this);
         mostraFuncionarioTela = new MostraFuncionarioTela(primeiraTela, this);
         mostrarProdutoServicoTela = new MostrarProdutoServicoTela(primeiraTela, this);
         realizarVendaTela = new RealizarVendaTela(primeiraTela, this);
@@ -71,7 +71,7 @@ public class MenuAdminTela extends javax.swing.JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //MostrarContasTela mostrarContasTela = new MostrarContasTela(primeiraTela,tis);
-                mostrarContasTela.mostraContasTelaGUI();
+                pagarTela.pagarTelaGUI();
             }
         });
 

@@ -2,6 +2,7 @@ package com.company.components_models.estabelecimento.pessoas.funcionarios.veter
 
 import com.company.components_models.estabelecimento.pessoas.funcionarios.Funcionario;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -13,6 +14,10 @@ public class Veterinario extends Funcionario {
         super(nome, CPF, tel, cargo, salario);
         setUser(user);
         setSenha(senha);
+    }
+
+    public Veterinario() {
+
     }
 
     public void setUser(String user) {
@@ -38,10 +43,12 @@ public class Veterinario extends Funcionario {
         }
     }
 
-    public void imprimeVeterinarioCompleto(ArrayList<Veterinario> veterinarios){
+    public void imprimeVeterinarioCompleto(ArrayList<Veterinario> veterinarios, String nome){
         System.out.println("\t\tVeterinarios");
         for (Veterinario vet : veterinarios) {
-            System.out.println("Nome: " + vet.getNome() + "CPF: " + vet.getCPF()+ "Telefone: " + vet.getTel() + "Cargo: " + vet.getCargo() + "Salario: R$ " + vet.getSalario());
+            if (Objects.equals(vet.getNome(), nome)){
+                JOptionPane.showMessageDialog(null, "Nome: " + vet.getNome() + " " + "CPF: " + vet.getCPF()+ " " + "Telefone: " + vet.getTel() + "Cargo: " + vet.getCargo() + " " + "Salario: R$ " + vet.getSalario(), "Tosador",JOptionPane.INFORMATION_MESSAGE);
+            }
         }
     }
 

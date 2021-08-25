@@ -16,6 +16,8 @@ public class MostraFuncionarioTela {
     private JButton cadastrarFuncionarioButton;
     private JButton mostrarFuncionariosButton;
     private JButton voltarButton;
+    private JTextField funcionarioBusca;
+    private JLabel nomeDoFuncionarioParaLabel;
 
     public JFrame frame;
 
@@ -54,7 +56,7 @@ public class MostraFuncionarioTela {
         mostrarFuncionariosButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                primeiraTela.data.buscaFuncionario(funcionarioBusca.getText());
             }
         });
     }
