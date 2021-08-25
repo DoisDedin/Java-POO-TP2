@@ -7,11 +7,9 @@ import com.company.components_models.estabelecimento.pessoas.funcionarios.vended
 import com.company.components_models.estabelecimento.pessoas.funcionarios.veterinario.Veterinario;
 import com.company.components_models.estabelecimento.produto_servico.Produto;
 import com.company.components_models.estabelecimento.produto_servico.Servico;
-import com.company.ui.mainView.menus.vendedor.TelaCadastrarCliente;
 //import com.company.ui.mainView.menus.vendedor.TelaCadastrarCliesnte;
 
 import javax.swing.*;
-import java.lang.ref.Cleaner;
 import java.util.ArrayList;
 
 public class Data {
@@ -285,5 +283,42 @@ public class Data {
                 break;
             }
         }
+    }
+
+    public String retQtd(){
+        int aux = 0;
+        for (Produto produto : produtos) {
+            aux += produto.getQtd();
+        }
+        return String.valueOf(aux);
+    }
+
+    public String retValor(){
+        double t = 0;
+        for (Produto produto : produtos) {
+            t += produto.getQtd() * produto.getPreco();
+        }
+        return String.valueOf(t);
+    }
+
+    public String retQtdServ(){
+        int aux = 0;
+        for (Servico serv : servicos) {
+            aux += serv.getQtd();
+        }
+        return String.valueOf(aux);
+    }
+
+    public String retValorServ(){
+        double t = 0;
+        for (Servico serv : servicos) {
+            t += serv.getQtd() * serv.getPreco();
+        }
+        return String.valueOf(t);
+    }
+
+    public String retLucro(){
+        double aux = Double.parseDouble(retValor()) * Double.parseDouble(retValorServ());
+        return String.valueOf(aux);
     }
 }
